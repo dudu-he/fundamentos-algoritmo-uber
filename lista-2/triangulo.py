@@ -1,31 +1,22 @@
-def e_triangulo(x: float, y: float, z: float) -> bool:
-    '''Dados 3 valores reais, determina se eles formam um triângulo
-    >>> e_triangulo(16, 20, 30)
-    True
-    >>> e_triangulo(4, 7, 12)
-    False'''
-    if (x + y > z) and (x + z > y) and (z + y > x):
-        return True
-    return False
+def main(a: float, b: float, c: float) -> str:
+    '''retorna o tipo de um triângulo com base nos valores de seus lados.
+    >>> main(3, 3, 3)
+    'triângulo equilátero'
 
-def tipo_triangulo(x: float, y: float, z: float) -> str:
-    '''Dados 3 valores reais, determine se eles formam um triângulo e, se sim, qual o tipo de triângulo formado
-    Exemplos:
-    >>> tipo_triangulo(16, 20, 30)
-    'Escaleno'
-    >>> tipo_triangulo(15, 15, 15)
-    'Equilátero'
-    >>> tipo_triangulo(24, 24, 13)
-    'Isósceles'
-    >>> tipo_triangulo(4, 7, 12)
-    'Não é um triângulo'
-    '''
-    if e_triangulo(x, y, z) == False:
-        return 'Não é um triângulo'
+    >>> main(3, 3, 5)
+    'triângulo isósceles'
+
+    >>> main(3, 4, 5)
+    'triângulo escaleno'
     
-    if (x == y) and (y == z):
-        return 'Equilátero'
-    elif (x == y) or (y == z) or (z == x):
-        return 'Isósceles'
+    >>> main(3, 3, 7)
+    'não é triângulo'
+    '''
+    if a == b and b == c:
+        return 'triângulo equilátero'
+    elif (a == b or b == c or c == a) and c < a + b:
+        return 'triângulo isósceles'
+    elif a < b + c and c < a + b and b < a + c:
+        return 'triângulo escaleno'
     else:
-        return 'Escaleno'
+        return 'não é triângulo'

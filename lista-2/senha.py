@@ -1,10 +1,15 @@
-def senha(senha: str) -> bool:
-    '''Faça um programa que lê uma senha e retorna se ela é a correta ou não
-    Exemplos:
-    >>> senha('teste')
+def main(password: str) -> bool:
+    '''Verifica se a senha digitada no input da função é a senha correta.
+    >>> main('senha')
+    True
+
+    >>> main('Senha')
     False
-    >>> senha('senha')
-    True'''
-    if senha == 'senha':
-        return True
-    return False
+
+    >>> main('senha123')
+    False
+
+    >>> main('akjfhdjskl')
+    False
+    '''
+    return password == 'senha' 
